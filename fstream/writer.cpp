@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 
 using namespace std;
@@ -6,23 +7,24 @@ int main()
 {
     string command;
     string text;
-    string filename;
-    ofstream fout(filename);
-    cin << text;
+    ofstream file;
+    cin >> text;
     while(command.compare("quit")!=0)
     {
         cin >> command;
         if(command.compare("write")==0)
         {
-            fout << text;
+            cout << "type your input:\n";
+            cin >> text;
+            command="";
         }
 
         if(command.compare("save")==0)
         {
-            cout << "what would you like to save it as?\n";
-            cin >> filename;
-            fout << text;
+            file.open("doc.txt");
+            file << text;
             cout << "saved.\n";
+            file.close();
         }
     }
 

@@ -1,10 +1,29 @@
-#include <\Users\James\Dropbox\My Programs\C++\2dworld\src\point.h>
 #include <iostream>
 using namespace std;
+
+class person
+{
+    string name;
+    int age;
+
+    public:
+
+    person()
+    {
+        name="Fred";
+        age=50;
+    }
+
+    ~person()
+    {
+
+    }
+};
+
 int main()
 {
     string input;
-    int *p;
+    person * people;
 
     while(input.compare("quit")!=0)
     {
@@ -12,13 +31,18 @@ int main()
         if(input.compare("create")==0)
         {
             cout << "creating...\n";
-            p = new int[1000];
+            people = new person[100];
             cout << "created.";
+        }
+
+        if(input.compare("size")==0)
+        {
+            cout << sizeof(people);
         }
 
         if(input.compare("destroy")==0)
         {
-            delete[] p;
+            delete[] people;
             cout << "destroyed.";
         }
 
